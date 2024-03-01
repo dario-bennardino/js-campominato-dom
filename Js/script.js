@@ -3,6 +3,11 @@ const gridContainer = document.querySelector('.grid-container');
 
 const resetButton = document.querySelector('.btn-success');
 
+//costanti per la generazione delle bombe
+const numBombs = 16;
+
+let arrayBombs = [];
+
 // resetButton.addEventListener('click', reset);
 
 reset ();
@@ -67,3 +72,15 @@ resetButton.addEventListener('click', function () {
     });
 
 });
+
+//funzione per generare un le 16 bombe attribuendo un numero random
+
+function generateBombIndices() {
+    while (arrayBombs.length < numBombs) {
+        const randomIndex = Math.floor(Math.random() * 100) + 1;
+        if (!arrayBombs.includes(randomIndex)) {
+            arrayBombs.push(randomIndex);
+        }
+    }
+
+}
