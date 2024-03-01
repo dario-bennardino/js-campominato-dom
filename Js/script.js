@@ -8,6 +8,9 @@ const numBombs = 16;
 
 let arrayBombs = [];
 
+//variabile per il punteggio
+let clickCount = 0; 
+
 // resetButton.addEventListener('click', reset);
 
 reset ();
@@ -40,6 +43,12 @@ function getSquare(numero){
 
     // Aggiungo la classe "clicked" al quadrato cliccato
         this.classList.add('clicked');
+
+        //incrementa il counter al click di un quadrato
+        clickCount++;
+        console.log('Conteggio clic:', clickCount);
+
+
     })
 
     
@@ -53,7 +62,7 @@ function reset(){
     
 }
 
-//funzione per resettare quadrati selezionati da associare al bottone
+//BOTTONE GIOCA funzione per resettare quadrati selezionati generare le bombe tramite funzione random
 
 resetButton.addEventListener('click', function () {
 
@@ -70,6 +79,19 @@ resetButton.addEventListener('click', function () {
         // Rimuovi la classe 'clicked'
         square.classList.remove('clicked');
     });
+
+      // Resetta il conteggio
+      clickCount = 0;
+      console.log('Conteggio clic resettato:', clickCount);
+
+    //genero le 16 bombe
+
+    generateBombIndices();
+
+  
+
+    // Mostra l'array delle bombe generato nella console
+    console.log('Array di bombe generato:', arrayBombs);
 
 });
 
