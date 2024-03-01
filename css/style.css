@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper{
+    height: 100vh;
+    background-color: #80FFD4;
+}
+
+.grid-container{
+    height: 800px;
+    width: 800px;
+    background-color: gray;
+    
+    
+}
+
+.square{
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.square.clicked{
+    background-color: rgb(214, 158, 53);
+}
+
+.btn-success {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
