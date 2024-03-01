@@ -43,6 +43,15 @@ function getSquare(numero){
             if (arrayBombs.includes(numero)) {
                 this.classList.add('bomb');
                 alert(`Hai perso! Hai ottenuto un punteggio di ${clickCount}`);
+
+                // Aggiungi la classe 'bomb' a tutte le bombe presenti tramite ciclo
+                // for (let i = 0; i < arrayBombs.length; i++){
+                //     const bombIndex = arrayBombs[i];
+                //     console.log(bombIndex);
+                //     const bombSquare = getSquare(bombIndex);
+                //     bombSquare.classList.add('bomb');
+
+                // }
     
         } else {
         // Il gioco continua il quadrato assume la classe 'clicked'
@@ -69,7 +78,7 @@ function getSquare(numero){
 }
 
 
-//funzione per resettare il gioco
+//funzione per resettare il gioco tutti i quadrati dalla griglia
 function reset(){
     gridContainer.innerHTML = '';
     
@@ -92,6 +101,10 @@ resetButton.addEventListener('click', function () {
 
         // Rimuovi la classe 'clicked'
         square.classList.remove('clicked');
+
+        // Rimuovi la classe 'bomb'
+        square.classList.remove('bomb');
+
     });
 
       // Resetta il conteggio
