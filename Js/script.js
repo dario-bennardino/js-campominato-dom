@@ -36,17 +36,34 @@ function getSquare(numero){
     sq._sqID = numero;
 
     sq.addEventListener('click', function(){
-        //this mi restituisce l'elemento contenitore 
+
+
+        // Verifica se il quadrato è già stato cliccato
+    if (!this.classList.contains('clicked')) {
         console.log(this._sqID);
 
         this.innerHTML = this._sqID; 
 
-    // Aggiungo la classe "clicked" al quadrato cliccato
+        // Aggiungo la classe "clicked" al quadrato cliccato
         this.classList.add('clicked');
 
-        //incrementa il counter al click di un quadrato
+        // Incrementa il contatore solo se il quadrato non è stato cliccato prima
         clickCount++;
         console.log('Conteggio clic:', clickCount);
+    }
+
+
+    //     //this mi restituisce l'elemento contenitore 
+    //     console.log(this._sqID);
+
+    //     this.innerHTML = this._sqID; 
+
+    // // Aggiungo la classe "clicked" al quadrato cliccato
+    //     this.classList.add('clicked');
+
+    //     //incrementa il counter al click di un quadrato
+    //     clickCount++;
+    //     console.log('Conteggio clic:', clickCount);
 
 
     })
