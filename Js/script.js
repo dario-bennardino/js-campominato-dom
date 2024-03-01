@@ -30,7 +30,6 @@ for(let i = 1; i<=100; i++){
 function getSquare(numero){
     const sq = document.createElement('div');
     sq.className = 'square';
-    // sq.innerHTML = numero;
 
     //creo una proprietà custom all'interno dell'elemento HTML e la chiamo _sqID
     sq._sqID = numero;
@@ -38,19 +37,31 @@ function getSquare(numero){
     //EVENTO CLICK DEL QUADRATO
     sq.addEventListener('click', function(){
 
-        // Verifica se il quadrato è già stato cliccato
-    if (!this.classList.contains('clicked')) {
-        console.log(this._sqID);
-
-        this.innerHTML = this._sqID; 
-
-        // Aggiungo la classe "clicked" al quadrato cliccato
-        this.classList.add('clicked');
-
-        // Incrementa il contatore solo se il quadrato non è stato cliccato prima
-        clickCount++;
-        console.log('Conteggio clic:', clickCount);
-    }
+        if (!this.classList.contains('clicked')) {
+    
+            // Verifica se il numero del quadrato è presente nell'array delle bombe
+            if (arrayBombs.includes(numero)) {
+                // Il gioco finisce mostra un alert hai perso
+                this.classList.add('bomb');
+                alert('Hai perso!');
+    
+            } else {
+                // Il gioco continua il quadrato assume la classe 'clicked'
+                this.classList.add('clicked');
+    
+                // Incrementa il contatore solo se il quadrato non è una bomba
+                clickCount++;
+                console.log('Conteggio clic:', clickCount);
+    
+                // alert('Conteggio clic: ' + clickCount);
+    
+                // Verifica se hai vinto
+                if (clickCount === 100 - numBombs) {
+                    alert('Hai vinto!');
+                    
+                }
+            }
+        }
 
     })
 
