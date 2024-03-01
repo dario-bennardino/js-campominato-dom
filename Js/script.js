@@ -1,3 +1,4 @@
+//DATI
 
 const gridContainer = document.querySelector('.grid-container');
 
@@ -11,7 +12,6 @@ let arrayBombs = [];
 //variabile per il punteggio
 let clickCount = 0; 
 
-// resetButton.addEventListener('click', reset);
 
 reset ();
 
@@ -35,8 +35,8 @@ function getSquare(numero){
     //creo una proprietà custom all'interno dell'elemento HTML e la chiamo _sqID
     sq._sqID = numero;
 
+    //EVENTO CLICK DEL QUADRATO
     sq.addEventListener('click', function(){
-
 
         // Verifica se il quadrato è già stato cliccato
     if (!this.classList.contains('clicked')) {
@@ -51,20 +51,6 @@ function getSquare(numero){
         clickCount++;
         console.log('Conteggio clic:', clickCount);
     }
-
-
-    //     //this mi restituisce l'elemento contenitore 
-    //     console.log(this._sqID);
-
-    //     this.innerHTML = this._sqID; 
-
-    // // Aggiungo la classe "clicked" al quadrato cliccato
-    //     this.classList.add('clicked');
-
-    //     //incrementa il counter al click di un quadrato
-    //     clickCount++;
-    //     console.log('Conteggio clic:', clickCount);
-
 
     })
 
@@ -90,6 +76,7 @@ resetButton.addEventListener('click', function () {
     // Itera attraverso ogni quadrato e rimuovi il testo e la classe 'clicked'
 
     squares.forEach(function(square) {
+
         // Rimuovi il testo
         square.innerHTML = '';
 
@@ -105,15 +92,12 @@ resetButton.addEventListener('click', function () {
 
     generateBombIndices();
 
-  
-
     // Mostra l'array delle bombe generato nella console
-    console.log('Array di bombe generato:', arrayBombs);
+    console.log('Array di bombe generate:', arrayBombs);
 
 });
 
-//funzione per generare un le 16 bombe attribuendo un numero random
-
+//Funzione per generare le 16 bombe attribuendo un numero random
 function generateBombIndices() {
     while (arrayBombs.length < numBombs) {
         const randomIndex = Math.floor(Math.random() * 100) + 1;
@@ -121,5 +105,5 @@ function generateBombIndices() {
             arrayBombs.push(randomIndex);
         }
     }
-
+    // console.log('Array di bombe generate:', arrayBombs);
 }
