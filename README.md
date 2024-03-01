@@ -43,4 +43,9 @@ FINE GIOCO
 - congelo la griglia
 - stampo il messaggio finale con punteggio. Messaggio diverso se vince o perde.
 ## Svolgimento
-1. 
+1. Creare un ciclo per la generazione delle 16 bombe ovvero estraggo a caso 16 numeri da 1 a 100 e vado a riempire un array vuoto che sarà l'array delle bombe.
+2. creo un contatore per il punteggio collegato al numero di click
+3. Al clic della cella pongo delle condizioni:
+- se ho selezionato una cella il cui numero è presente nell'array bombe allore la cella si colorera di rosso attribuendo una classe pressa da css con background rosso e mi restituirà un messaggio 'Hai perso + punteggio' altrimenti vado avanti e la cella cliccata si colora di azzurro oppure giallo come già fatto
+- finisce se il contatore delle celle cliccate sarà uguale alla lunghezza dell'array delle bombe - 1 (length-1) quindi l'utente avra vinto ed uscirà un messaggio con Hai vinto.
+4. devo creare un tasto reset che mi resetti tutte le celle selezionate, il contatore e si ricalcolino le bombe
